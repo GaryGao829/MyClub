@@ -1,0 +1,82 @@
+{
+  "properties": {
+    "animationDuration": {
+      "type": "number|string"
+    },
+    "animationOnDataChange": {
+      "type": "string"
+    },
+    "animationOnDisplay": {
+      "type": "string"
+    },
+    "columnCount": {
+      "type": "number"
+    },
+    "columnWidth": {
+      "type": "number"
+    },
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "drilling": {
+      "type": "string"
+    },
+    "hiddenCategories": {
+      "type": "Array<string>"
+    },
+    "highlightedCategories": {
+      "type": "Array<string>"
+    },
+    "highlightMatch": {
+      "type": "string"
+    },
+    "hoverBehavior": {
+      "type": "string"
+    },
+    "hoverBehaviorDelay": {
+      "type": "number|string"
+    },
+    "items": {
+      "type": "Array<object>"
+    },
+    "layout": {
+      "type": "string"
+    },
+    "layoutOrigin": {
+      "type": "string"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "rowCount": {
+      "type": "number"
+    },
+    "rowHeight": {
+      "type": "number"
+    },
+    "selection": {
+      "type": "Array<string>"
+    },
+    "selectionMode": {
+      "type": "string"
+    },
+    "tooltip": {
+      "type": "object"
+    },
+    "trackResize": {
+      "type": "string"
+    },
+    "translations": {
+      "type": "Object"
+    }
+  },
+  "methods": {
+    "getContextByNode": {},
+    "getItem": {},
+    "getItemCount": {},
+    "getNodeBySubId": {},
+    "option": {},
+    "refresh": {},
+    "whenReady": {}
+  }
+}

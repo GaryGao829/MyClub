@@ -1,0 +1,38 @@
+{
+  "properties": {
+    "chroming": {
+      "type": "string"
+    },
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "display": {
+      "type": "string"
+    },
+    "icons": {
+      "type": "Object"
+    },
+    "label": {
+      "type": "string"
+    },
+    "menu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "translations": {
+      "type": "Object"
+    }
+  },
+  "methods": {
+    "destroy": {},
+    "getNodeBySubId": {},
+    "option": {},
+    "refresh": {},
+    "widget": {}
+  }
+}

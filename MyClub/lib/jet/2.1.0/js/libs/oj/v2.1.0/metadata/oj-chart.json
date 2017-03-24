@@ -1,0 +1,176 @@
+{
+  "properties": {
+    "animationOnDataChange": {
+      "type": "string"
+    },
+    "animationOnDisplay": {
+      "type": "string"
+    },
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "coordinateSystem": {
+      "type": "string"
+    },
+    "dataCursor": {
+      "type": "string"
+    },
+    "dataCursorBehavior": {
+      "type": "string"
+    },
+    "dataCursorPosition": {
+      "type": "object"
+    },
+    "dataLabel": {
+      "type": "function(object)"
+    },
+    "dnd": {
+      "type": "object"
+    },
+    "dragMode": {
+      "type": "string"
+    },
+    "drilling": {
+      "type": "string"
+    },
+    "footnote": {
+      "type": "object"
+    },
+    "groups": {
+      "type": "Array<object>|Array<string>|Promise|function<>"
+    },
+    "hiddenCategories": {
+      "type": "Array<string>"
+    },
+    "hideAndShowBehavior": {
+      "type": "string"
+    },
+    "highlightedCategories": {
+      "type": "Array<string>"
+    },
+    "highlightMatch": {
+      "type": "string"
+    },
+    "hoverBehavior": {
+      "type": "string"
+    },
+    "initialZooming": {
+      "type": "string"
+    },
+    "legend": {
+      "type": "object"
+    },
+    "orientation": {
+      "type": "string"
+    },
+    "otherThreshold": {
+      "type": "number"
+    },
+    "overview": {
+      "type": "object"
+    },
+    "pieCenter": {
+      "type": "object"
+    },
+    "pieCenterLabel": {
+      "type": "object"
+    },
+    "plotArea": {
+      "type": "object"
+    },
+    "polarGridShape": {
+      "type": "string"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "selection": {
+      "type": "Array<string>|Array<object>"
+    },
+    "selectionMode": {
+      "type": "string"
+    },
+    "series": {
+      "type": "Array<object>|Promise|function<>"
+    },
+    "sorting": {
+      "type": "string"
+    },
+    "splitDualY": {
+      "type": "string"
+    },
+    "splitterPosition": {
+      "type": "number"
+    },
+    "stack": {
+      "type": "string"
+    },
+    "stackLabel": {
+      "type": "string"
+    },
+    "styleDefaults": {
+      "type": "object"
+    },
+    "subtitle": {
+      "type": "object"
+    },
+    "timeAxisType": {
+      "type": "string"
+    },
+    "title": {
+      "type": "object"
+    },
+    "tooltip": {
+      "type": "object"
+    },
+    "touchResponse": {
+      "type": "string"
+    },
+    "trackResize": {
+      "type": "string"
+    },
+    "translations": {
+      "type": "Object"
+    },
+    "type": {
+      "type": "string"
+    },
+    "valueFormats": {
+      "type": "Array<object>"
+    },
+    "xAxis": {
+      "type": "object"
+    },
+    "y2Axis": {
+      "type": "object"
+    },
+    "yAxis": {
+      "type": "object"
+    },
+    "zoomAndScroll": {
+      "type": "string"
+    },
+    "zoomDirection": {
+      "type": "string"
+    }
+  },
+  "methods": {
+    "getContextByNode": {},
+    "getDataItem": {},
+    "getGroup": {},
+    "getGroupCount": {},
+    "getLegend": {},
+    "getNodeBySubId": {},
+    "getPlotArea": {},
+    "getSeries": {},
+    "getSeriesCount": {},
+    "getTitle": {},
+    "getValuesAt": {},
+    "getXAxis": {},
+    "getY2Axis": {},
+    "getYAxis": {},
+    "option": {},
+    "refresh": {},
+    "whenReady": {}
+  }
+}

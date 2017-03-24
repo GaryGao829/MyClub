@@ -1,0 +1,24 @@
+{
+  "properties": {
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "selected": {},
+    "steps": {},
+    "translations": {
+      "type": "Object"
+    }
+  },
+  "methods": {
+    "getNodeBySubId": {},
+    "getStep": {},
+    "nextSelectableStep": {},
+    "option": {},
+    "previousSelectableStep": {},
+    "refresh": {},
+    "setStep": {}
+  }
+}

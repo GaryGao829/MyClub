@@ -1,0 +1,63 @@
+{
+  "properties": {
+    "animationDuration": {
+      "type": "number"
+    },
+    "animationOnDataChange": {
+      "type": "string"
+    },
+    "animationOnDisplay": {
+      "type": "string"
+    },
+    "background": {
+      "type": "object|string"
+    },
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "indicator": {
+      "type": "object|string"
+    },
+    "max": {
+      "type": "number"
+    },
+    "metricLabel": {
+      "type": "object"
+    },
+    "min": {
+      "type": "number"
+    },
+    "oj-dialgauge-tooltip": {},
+    "rawValue": {
+      "type": "number|undefined"
+    },
+    "readOnly": {
+      "type": "boolean"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "tickLabel": {
+      "type": "object"
+    },
+    "tooltip": {
+      "type": "object"
+    },
+    "trackResize": {
+      "type": "string"
+    },
+    "translations": {
+      "type": "Object"
+    },
+    "value": {
+      "type": "number"
+    }
+  },
+  "methods": {
+    "getMetricLabel": {},
+    "getNodeBySubId": {},
+    "option": {},
+    "refresh": {},
+    "whenReady": {}
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "properties": {
+    "autoDismiss": {
+      "type": "string"
+    },
+    "chrome": {
+      "type": "string"
+    },
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "initialFocus": {
+      "type": "string"
+    },
+    "modality": {
+      "type": "string"
+    },
+    "widget": {},
+    "position": {
+      "type": "Object"
+    },
+    "role": {
+      "type": "string"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "tail": {
+      "type": "string"
+    },
+    "translations": {
+      "type": "Object"
+    }
+  },
+  "methods": {
+    "close": {},
+    "getNodeBySubId": {},
+    "isOpen": {},
+    "open": {},
+    "option": {},
+    "refresh": {}
+  }
+}

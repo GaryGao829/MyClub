@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "data": {
+      "type": "oj.IndexerModel"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "translations": {
+      "type": "Object"
+    }
+  },
+  "methods": {
+    "getNodeBySubId": {},
+    "getSubIdByNode": {},
+    "option": {},
+    "refresh": {},
+    "widget": {}
+  }
+}

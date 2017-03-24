@@ -1,0 +1,71 @@
+{
+  "properties": {
+    "changed": {
+      "type": "boolean"
+    },
+    "changedState": {
+      "type": "object"
+    },
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "hoverState": {
+      "type": "object"
+    },
+    "max": {
+      "type": "number"
+    },
+    "min": {
+      "type": "number"
+    },
+    "oj-ratinggauge-tooltip": {},
+    "orientation": {
+      "type": "string"
+    },
+    "preserveAspectRatio": {
+      "type": "string"
+    },
+    "rawValue": {
+      "type": "number|undefined"
+    },
+    "readOnly": {
+      "type": "boolean"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "selectedState": {
+      "type": "object"
+    },
+    "step": {
+      "type": "number"
+    },
+    "thresholds": {
+      "type": "Array<object>"
+    },
+    "tooltip": {
+      "type": "object"
+    },
+    "trackResize": {
+      "type": "string"
+    },
+    "translations": {
+      "type": "Object"
+    },
+    "unselectedState": {
+      "type": "object"
+    },
+    "value": {
+      "type": "number"
+    },
+    "visualEffects": {
+      "type": "string"
+    }
+  },
+  "methods": {
+    "getNodeBySubId": {},
+    "option": {},
+    "refresh": {},
+    "whenReady": {}
+  }
+}

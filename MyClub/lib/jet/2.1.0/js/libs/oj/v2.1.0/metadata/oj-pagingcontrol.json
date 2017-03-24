@@ -1,0 +1,43 @@
+{
+  "properties": {
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "data": {
+      "type": "oj.PagingModel"
+    },
+    "loadMoreOptions": {
+      "type": "Object.<string, number>"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "overflow": {
+      "type": "string"
+    },
+    "pageOptions": {
+      "type": "Object.<string, Array|number>"
+    },
+    "pageSize": {
+      "type": "number"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "translations": {
+      "type": "Object"
+    }
+  },
+  "methods": {
+    "firstPage": {},
+    "getNodeBySubId": {},
+    "getSubIdByNode": {},
+    "lastPage": {},
+    "loadNext": {},
+    "nextPage": {},
+    "option": {},
+    "page": {},
+    "previousPage": {},
+    "refresh": {}
+  }
+}

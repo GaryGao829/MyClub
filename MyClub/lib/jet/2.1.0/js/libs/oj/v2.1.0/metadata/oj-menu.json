@@ -1,0 +1,34 @@
+{
+  "properties": {
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "menuSelector": {
+      "type": "string"
+    },
+    "openOptions": {
+      "type": "Object"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "submenuOpenOptions": {
+      "type": "Object"
+    },
+    "translations": {
+      "type": "Object"
+    }
+  },
+  "methods": {
+    "destroy": {},
+    "getCurrentOpenOptions": {},
+    "getNodeBySubId": {},
+    "open": {},
+    "option": {},
+    "refresh": {},
+    "widget": {}
+  }
+}

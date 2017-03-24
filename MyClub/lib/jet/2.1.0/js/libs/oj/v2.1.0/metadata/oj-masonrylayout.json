@@ -1,0 +1,27 @@
+{
+  "properties": {
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "reorderHandle": {
+      "type": "string"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "translations": {
+      "type": "Object"
+    }
+  },
+  "methods": {
+    "getNodeBySubId": {},
+    "insertTile": {},
+    "option": {},
+    "refresh": {},
+    "removeTile": {},
+    "resizeTile": {}
+  }
+}

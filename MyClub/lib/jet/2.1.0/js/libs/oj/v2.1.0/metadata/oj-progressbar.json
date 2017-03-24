@@ -1,0 +1,21 @@
+{
+  "properties": {
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "disabled": {},
+    "max": {},
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "translations": {
+      "type": "Object"
+    },
+    "value": {}
+  },
+  "methods": {
+    "getNodeBySubId": {},
+    "option": {},
+    "refresh": {}
+  }
+}

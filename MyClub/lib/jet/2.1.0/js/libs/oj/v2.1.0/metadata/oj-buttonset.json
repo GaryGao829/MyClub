@@ -1,0 +1,32 @@
+{
+  "properties": {
+    "checked": {
+      "type": "string|Array<string>|undefined"
+    },
+    "chroming": {
+      "type": "string"
+    },
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "focusManagement": {
+      "type": "string"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "translations": {
+      "type": "Object"
+    }
+  },
+  "methods": {
+    "destroy": {},
+    "getNodeBySubId": {},
+    "option": {},
+    "refresh": {},
+    "widget": {}
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "properties": {
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "data": {
+      "type": "Object|Array|string|null"
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "dnd": {
+      "type": "Object"
+    },
+    "emptyText": {
+      "type": "string|null"
+    },
+    "expandParents": {
+      "type": "boolean"
+    },
+    "icons": {
+      "type": "boolean"
+    },
+    "initExpanded": {
+      "type": "Array|null"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "selectedParentCollapse": {
+      "type": "boolean|string"
+    },
+    "selectedParentExpand": {
+      "type": "boolean"
+    },
+    "selection": {
+      "type": "Array"
+    },
+    "selectionMode": {
+      "type": "string"
+    },
+    "selectPrevOnDelete": {
+      "type": "boolean"
+    },
+    "translations": {
+      "type": "Object"
+    },
+    "types": {
+      "type": "Object|null"
+    }
+  },
+  "methods": {
+    "collapse": {},
+    "collapseAll": {},
+    "create": {},
+    "dehover": {},
+    "deselect": {},
+    "deselectAll": {},
+    "destroy": {},
+    "expand": {},
+    "expandAll": {},
+    "expanded": {},
+    "getChildren": {},
+    "getContextByNode": {},
+    "getNextSibling": {},
+    "getNodeBySubId": {},
+    "getParent": {},
+    "getPath": {},
+    "getPrevSibling": {},
+    "getRoot": {},
+    "getSubIdByNode": {},
+    "getText": {},
+    "getType": {},
+    "hover": {},
+    "isCollapsed": {},
+    "isExpanded": {},
+    "isLeaf": {},
+    "isSelected": {},
+    "move": {},
+    "option": {},
+    "refresh": {},
+    "remove": {},
+    "rename": {},
+    "scrollIntoView": {},
+    "select": {},
+    "setType": {},
+    "toggleExpand": {},
+    "toggleSelect": {}
+  }
+}

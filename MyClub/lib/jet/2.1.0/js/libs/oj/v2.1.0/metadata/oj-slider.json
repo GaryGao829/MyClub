@@ -1,0 +1,73 @@
+{
+  "properties": {
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "displayOptions": {
+      "type": "Object|undefined"
+    },
+    "help": {
+      "type": "Object.<string, string>"
+    },
+    "invalidComponentTracker": {
+      "type": "oj.InvalidComponentTracker"
+    },
+    "max": {
+      "type": "number"
+    },
+    "messagesCustom": {
+      "type": "Array|undefined"
+    },
+    "messagesHidden": {
+      "type": "Array|undefined"
+    },
+    "messagesShown": {
+      "type": "Array|undefined"
+    },
+    "min": {
+      "type": "number"
+    },
+    "orientation": {
+      "type": "string"
+    },
+    "rawValue": {
+      "type": "number|Array<Number>|undefined"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "step": {
+      "type": "number"
+    },
+    "title": {
+      "type": "string|undefined"
+    },
+    "translations": {
+      "type": "Object"
+    },
+    "type": {
+      "type": "string"
+    },
+    "validators": {
+      "type": "Array|undefined"
+    },
+    "value": {
+      "type": "number|Array<Number>"
+    }
+  },
+  "methods": {
+    "getNodeBySubId": {},
+    "isValid": {},
+    "option": {},
+    "refresh": {},
+    "reset": {},
+    "showMessages": {},
+    "validate": {}
+  }
+}

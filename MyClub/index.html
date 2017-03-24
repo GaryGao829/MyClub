@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--link rel="icon" href="css/images/favicon.ico" type="image/x-icon" /-->
+    <link href="lib/jet/2.1.0/css/libs/oj/v2.1.0/alta/oj-alta-min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/jet/2.1.0/css/libs/oj/v2.1.0/alta/oj-alta-notag-min.css" rel="stylesheet" type="text/css" />
+    <script src="lib/jet/2.1.0/js/libs/require/require.js" data-main="js/main"></script>
+</head>
+
+<body>
+    <table id="table" summary="Task List" aria-label="Tasks Table" data-bind="ojComponent: 
+    {
+        component: 'ojTable', 
+        data: datasource, 
+        rowTemplate: 'row_template', 
+        columns:
+            [{headerText: 'Task Name', sortProperty: 'name'},
+            {headerText: 'Resource', sortProperty: 'resource'},
+            {headerText: 'Start Date', sortProperty: 'start'},
+            {headerText: 'End Date', sortProperty: 'end'}]
+    }">
+    </table>
+
+    <script type="text/html" id="row_template">
+        <tr>
+            <td>
+                <div data-bind="ojComponent: {
+            component: 'ojRowExpander', 
+            context: $rowContext}">
+                </div>
+                <span data-bind="text: name"></span>
+            </td>
+            <td>
+                <span data-bind="text: resource"></span>
+            </td>
+            <td>
+                <span data-bind="text: start"></span>
+            </td>
+            <td>
+                <span data-bind="text: end"></span>
+            </td>
+        </tr>
+    </script>
+</body>
+
+</html>

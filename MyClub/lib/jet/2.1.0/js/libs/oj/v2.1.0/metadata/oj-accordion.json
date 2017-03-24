@@ -1,0 +1,24 @@
+{
+  "properties": {
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "expanded": {
+      "type": "Array"
+    },
+    "multiple": {
+      "type": "boolean"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "translations": {
+      "type": "Object"
+    }
+  },
+  "methods": {
+    "getNodeBySubId": {},
+    "option": {},
+    "refresh": {}
+  }
+}

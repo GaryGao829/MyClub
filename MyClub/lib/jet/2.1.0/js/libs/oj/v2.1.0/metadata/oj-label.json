@@ -1,0 +1,30 @@
+{
+  "properties": {
+    "ariaRequiredUnsupported": {
+      "type": "boolean"
+    },
+    "contextMenu": {
+      "type": "Element|Array<Element>|string|jQuery|NodeList"
+    },
+    "describedById": {},
+    "help": {
+      "type": "Object.<string, string>"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "rootAttributes": {
+      "type": "Object"
+    },
+    "translations": {
+      "type": "Object"
+    }
+  },
+  "methods": {
+    "destroy": {},
+    "getNodeBySubId": {},
+    "option": {},
+    "refresh": {},
+    "widget": {}
+  }
+}
