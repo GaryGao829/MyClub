@@ -71,13 +71,21 @@
 		var button = self.name;
 		if(button == "select"){
 			submitRequest("GET", "", null, null, MEDIA_TYPE_JSON);
-		}else{
-			if(button == "insert"){
-				window.location = "create-activity.html";
-			}
+		}
+		if(button == "insert"){
+			window.location = "create-activity.html";
+		}
+		if(button == "delete"){
+			deleteRequest(document.requestBuilder.activity_id.value);
+		}
+		if(button == "register"){
+			var user_id = document.requestBuilder.user_id.value;
+			var activity_id = document.requestBuilder.activityId.value;
+			register(user_id, activity_id);
 		}
 	}
 	
+	//This function is for Query.
 	function submitRequest(method, uri, requestBody, contentType, accept) {
 		if (uri.indexOf(restsqlBaseUri) == -1) {
 			// called from builder
@@ -116,6 +124,79 @@
 		}
 		xmlhttp.send(requestBody);
 	}
+	
+	//This function is for delete. The param is activity_id.
+	//Here is required to enter id. But when table is formed, it can be selected and pass the id.
+	function deleteRequest(activity_id){
+		var uri = getResUri();
+		var url = restsqlHost + uri + "/" + escape(activity_id);
+		var responseBody = "";
+		var xmlhttp;
+
+		if (navigator.appName == "Microsoft Internet Explorer") {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		} else {
+			xmlhttp = new XMLHttpRequest();
+		}
+
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4) {
+				if (xmlhttp.status == 200) {
+					responseBody = prepResponseBodyForDisplay(xmlhttp.responseText, MEDIA_TYPE_JSON);
+				} else {
+					responseBody = "<code>" + xmlhttp.responseText + "</code>";
+				}
+			}
+		}
+		xmlhttp.open("DELETE", url, true);
+		xmlhttp.setRequestHeader("Accept", MEDIA_TYPE_JSON);
+		xmlhttp.send(null);
+	}
+	
+	//User registers activity
+	function register(user_id, activity_id){
+		var body = "";
+		var contentType = "";
+		var attributes = ["user_id",
+							user_id,
+							"activity_id",
+							activity_id];
+		body = buildUrlEncodedBody(attributes);
+		alert(body);
+		if (body == "") {
+			alert("At least one name/value required");
+			return;
+		}
+		contentType = MEDIA_TYPE_URLENCODED;
+		
+		var url = "/restsql" + "/res/" + "UserCampaign";
+		var responseBody = "";
+		var xmlhttp;
+
+		if (navigator.appName == "Microsoft Internet Explorer") {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		} else {
+			xmlhttp = new XMLHttpRequest();
+		}
+
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4) {
+				if (xmlhttp.status == 200) {
+					responseBody = prepResponseBodyForDisplay(xmlhttp.responseText, MEDIA_TYPE_JSON);
+				}else{
+					responseBody = "<code>" + xmlhttp.responseText + "</code>";
+				}
+				alert(responseBody);
+			}
+		}
+
+		xmlhttp.open("POST", url, true);
+		xmlhttp.setRequestHeader("Accept", MEDIA_TYPE_JSON);
+		if (contentType != null) {
+			xmlhttp.setRequestHeader("Content-Type", contentType);
+		}
+		xmlhttp.send(body);
+	}
 </script>
 </head>
 <body style="font-family:sans-serif">
@@ -127,6 +208,10 @@
 		<tr><td><input type="button" name="insert" value="Create" onclick="optionSelected(this)" /></td></tr>
 		<tr><td><input type="button" name="update" value="update" onclick="optionSelected(this)" /></td></tr>
 		<tr><td><input type="button" name="delete" value="delete" onclick="optionSelected(this)" /></td></tr>
+		<tr><td>Activity Id: <input type="text" name="activity_id" size="8"/></td></tr>
+		<tr><td><input type="button" name="register" value="Register" onclick="optionSelected(this)" /></td></tr>
+		<tr><td>User Id: <input type="text" name="user_id" size="8"/></td></tr>
+		<tr><td>Activity Id: <input type="text" name="activityId" size="8"/></td></tr>
 	</table>
 </form>
 
