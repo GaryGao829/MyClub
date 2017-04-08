@@ -106,6 +106,8 @@
 							document.requestForm.location.value,
 							"description",
 							document.requestForm.description.value,
+							"type",
+							document.requestForm.type.value,
 							"isPublished",
 							document.requestForm.isPublished.value];
 		body = buildUrlEncodedBody(attributes);
@@ -113,6 +115,7 @@
 			alert("At least one name/value required");
 			return;
 		}
+		alert(body);
 		contentType = MEDIA_TYPE_URLENCODED;
 		
 		submitRequest("POST", body, contentType, accept);
@@ -143,6 +146,9 @@
 			</td>
 			<td>
 				description: <input type="text" name="description" size="8" />
+			</td>
+			<td>
+				type: <input type="text" name="type" size="8" />
 			</td>
 			<td>
 				isPublished: <input type="text" name="isPublished" size="8" />
