@@ -1,0 +1,115 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-notag-min.css" rel="stylesheet" type="text/css" />
+    <script src="lib/jet/3.0.0/js/libs/require/require.js" data-main="js/createActivity"></script>
+</head>
+
+<body>
+    <div id="form-container">
+        <p><b>Create Activity</b></p>
+        <hr/>
+        <div id="oj-form-layout">
+            <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+                <!--Activity name-->
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <div>
+                            <label for="activityNameInput">ACTIVITY NAME</label>
+                            <input id="activityNameInput" placeholder="Type Activity Name" data-bind="ojComponent: {
+                   required:true,
+                   component: 'ojInputText', 
+                   value: ''}">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Location-->
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <div>
+                            <label for="activityStartTime">LOCATION</label>
+                            <input id="activityStartTime" placeholder="Type Activity Location" data-bind="ojComponent: {
+                   required:true,
+                   component: 'ojInputText', 
+                   value: ''}">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Start Date Time-->
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <div>
+                            <label for='startDate'>START AT</label>
+                            <input id="startDate" data-bind="ojComponent: {component: 'ojInputDate', 
+                                              value: startDate}" />
+                            <input id="startTime" data-bind="ojComponent: {component: 'ojInputTime', 
+                                  value: startTime
+                                  }" />
+                        </div>
+                    </div>
+                </div>
+
+                <!--End Date Time-->
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <div>
+                            <label for='endDate'>END AT</label>
+                            <input id="endDate" data-bind="ojComponent: {component: 'ojInputDate', 
+                                              value: endDate}" />
+                            <input id="endTime" data-bind="ojComponent: {component: 'ojInputTime', 
+                                  value: endTime
+                                  }" />
+                        </div>
+                    </div>
+                </div>
+
+                <!--Description-->
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <div>
+                            <label for="activityDesc">DESCRIPTION</label>
+                            <textarea id="activityDesc" style="resize: both;" placeholder="Describe your Activity" data-bind="ojComponent: {component: 'ojTextArea', 
+                                     value: ''}"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Activity Image-->
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <div>
+                            <!--<label for='picSelcet'> Choose your activity image </label>
+                            <select id='picSelcet' data-bind="ojComponent: {component: 'ojSelect',
+                              list: 'browsers',          
+                              rootAttributes: {style:'max-width:20em'}}">
+
+                                <option oj-data-value="Boli"><img src="http://wx1.sinaimg.cn/thumb300/9b60d56cly1fec253m2lbj20xc0qoqb0.jpg" role="presentation"
+                                        style="vertical-align:middle" width="48px" height="48px" /> Boli</option>
+                                <option oj-data-value="Wuha"><img src="http://wx4.sinaimg.cn/thumb300/9b60d56cgy1fe9ogvx8uwj20qo141k33.jpg" role="presentation"
+                                        style="vertical-align:middle" width="48px" height="48px" /> Wuha</option>
+                                        </select>-->
+
+                            <select id="select1" data-bind="ojComponent: {component: 'ojSelect',
+                              renderMode: 'jet',
+                              list: 'browsers', value: [''],         
+                              rootAttributes: {style:'max-width:20em'}}">
+  </select>
+                            <ul id="browsers" style="display: none">
+                                <li oj-data-value="Internet Explorer"><img src="http://wx1.sinaimg.cn/thumb300/9b60d56cly1fec253m2lbj20xc0qoqb0.jpg" width="48px" height="48px" role="presentation"
+                                        style="vertical-align:middle" /> Internet Explorer</li>
+                                <li oj-data-value="Firefox"><img src="http://wx4.sinaimg.cn/thumb300/9b60d56cgy1fe9ogvx8uwj20qo141k33.jpg" width="48px" height="48px" role="presentation"
+                                        style="vertical-align:middle" /> Firefox</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</body>

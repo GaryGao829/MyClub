@@ -1,8 +1,0 @@
-/**
- * Copyright (c) 2014, 2016, Oracle and/or its affiliates.
- * The Universal Permissive License (UPL), Version 1.0
- */
-"use strict";
-define(["ojs/ojcore","jquery","hammerjs","promise","ojs/ojoffcanvas"],function(a,g){a.lB={};o_("SwipeToRevealUtils",a.lB,a);a.lB.nJa=function(c,b){var d,e,f,h,k,l,m,s,t,r,n;d=g(c);d.hasClass("oj-swipetoreveal")||(d.addClass("oj-swipetoreveal"),e=d.hasClass("oj-offcanvas-start")?"end":"start",f={},f.selector=d,a.j.kia(f),h=a.j.vs(d),null!=b&&(k=b.threshold),null!=k?(k=parseInt(k,10),/%$/.test(b.threshold)&&(k=k/100*h.outerWidth())):k=.55*h.outerWidth(),l=Math.min(.3*h.outerWidth(),d.outerWidth()),
-m=!1,h.on("click.swipetoreveal",function(a){m&&(a.stopImmediatePropagation(),m=!1)}),d.on("ojpanstart",function(a,b){b.direction!=e?a.preventDefault():(d.children().addClass("oj-swipetoreveal-action"),r=d.children(".oj-swipetoreveal-default").get(0),t=(new Date).getTime())}).on("ojpanmove",function(a,b){m=!0;null!=r&&(b.distance>k?d.children().each(function(){this!=r&&g(this).addClass("oj-swipetoreveal-hide-when-full")}):d.children().removeClass("oj-swipetoreveal-hide-when-full"))}).on("ojpanend",
-function(a,b){n=b.distance;null!=r&&n>k&&(s=g.Event("ojdefaultaction"),d.trigger(s,f),a.preventDefault());n<l&&(200<(new Date).getTime()-t||10>n)&&a.preventDefault()}))};o_("SwipeToRevealUtils.setupSwipeActions",a.lB.nJa,a);a.lB.CJa=function(c){var b;b=g(c);c={};c.selector=b;b=a.j.vs(b);null!=b&&b.off("click.swipetoreveal");a.j.zia(c)};o_("SwipeToRevealUtils.tearDownSwipeActions",a.lB.CJa,a)});
