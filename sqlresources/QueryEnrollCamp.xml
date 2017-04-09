@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rs:sqlResource xmlns:rs="http://restsql.org/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://restsql.org/schema SqlResource.xsd ">
+	<query>
+	select users.user_id, activity.activity_id, activity.activity_name, activity.description
+      from
+      users
+      left outer join usercampaign on usercampaign.user_id = users.user_id
+      left join activity on
+      usercampaign.activity_id = activity.activity_id
+	</query>
+	<metadata>
+		<database default="myclub" />
+		<table name="users" role="Parent" />
+		<table name="activity" role="Child" />
+		<table name="usercampaign" role="Join" />
+	</metadata>
+</rs:sqlResource>
