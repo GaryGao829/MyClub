@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-notag-min.css" rel="stylesheet" type="text/css" />
+    <script src="lib/jet/3.0.0/js/libs/require/require.js" data-main="js/myActivities"></script>
+</head>
+<div id='myActivities'>
+    <p>
+        <h1>All My Activities</h1>
+    </p>
+
+    <table id="myActivityTable" summary="My Activities Table" aria-label="My Activities Table" data-bind="ojComponent:{component:'ojTable',
+	data:activities,
+	columns:[{headerText:'ActivitiyId',
+			field:'ActivitiyId',
+			id:'activity_id'},
+            {headerText:'ActivityName',
+			field:'ActivityName',
+			id:'activity_name'},
+			{headerText:'balabala',
+			field:'balabala',
+			id:'balabala'}]}">
+    </table>
+</div>
+
+<body>
+</body>
+
+</html>
