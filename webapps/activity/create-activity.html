@@ -28,7 +28,6 @@
 		var html = "<pre style='margin-top:0'>";
 		for (i = 0; i < responseBody.length; i++) {
 			character = responseBody.charAt(i);
-			//alert(character);
 			if (character == "\t") {
 				html = html + "&nbsp;&nbsp;&nbsp;";
 			} else {
@@ -52,7 +51,7 @@
 		return html + "</pre>";
 	}
 	
-	function submitRequest(method, requestBody, contentType, accept) {
+	function doCreate(method, requestBody, contentType) {
 		
 		var url = "/restsql" + "/res/" + "Activity";
 		var responseBody = "";
@@ -63,11 +62,6 @@
 		} else {
 			xmlhttp = new XMLHttpRequest();
 		}
-		
-		if (accept == null) {
-			accept = MEDIA_TYPE_XML;
-		}
-
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4) {
 				if (xmlhttp.status == 200) {
@@ -81,7 +75,7 @@
 		}
 
 		xmlhttp.open(method, url, true);
-		xmlhttp.setRequestHeader("Accept", accept);
+		xmlhttp.setRequestHeader("Accept", MEDIA_TYPE_JSON);
 		if (contentType != null) {
 			xmlhttp.setRequestHeader("Content-Type", contentType);
 		}
@@ -89,8 +83,8 @@
 		alert("create successfully");
 	}
 
-	
-	function submitInsertRequest(accept) {
+	//Create activity
+	function CreateActivity() {
 		
 		var body = "";
 		var contentType = "";
@@ -115,16 +109,15 @@
 			alert("At least one name/value required");
 			return;
 		}
-		alert(body);
 		contentType = MEDIA_TYPE_URLENCODED;
 		
-		submitRequest("POST", body, contentType, accept);
+		doCreate("POST", body, contentType);
 	}
 </script>
 </head>
 <body style="font-family:sans-serif">
 <span style='font-weight:bold'>Request Details</span><br/>
-<form name="requestForm" onsubmit="submitInsertRequest(MEDIA_TYPE_JSON); return false">
+<form name="requestForm" onsubmit="CreateActivity(); return false">
 	<table border="0">
 		<tr id="trUE" bgcolor="#EFEFEF">
 		</tr>
@@ -156,7 +149,7 @@
 		</tr>
 	</table>
 	<p>
-		&nbsp; <input type="button" name="submitJson" value="Create Activity" onclick="submitInsertRequest(MEDIA_TYPE_JSON)" />
+		&nbsp; <input type="button" name="submitJson" value="Create Activity" onclick="CreateActivity()" />
 	</p>
 </form>
 </body>
