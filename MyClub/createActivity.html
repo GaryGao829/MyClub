@@ -29,8 +29,8 @@
                 <div class="oj-flex">
                     <div class="oj-flex-item">
                         <div>
-                            <label for="activityStartTime">LOCATION</label>
-                            <input id="activityStartTime" placeholder="Type Activity Location" data-bind="ojComponent: {
+                            <label for="activityLocation">LOCATION</label>
+                            <input id="activityLocation" placeholder="Type Activity Location" data-bind="ojComponent: {
                    required:true,
                    component: 'ojInputText', 
                    value: ''}">
@@ -66,6 +66,20 @@
                     </div>
                 </div>
 
+                <!--Activity Type-->
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <div>
+                            <label for='activityType'>Activity Type</label>
+                            <input id="activityType" placeholder="Activity Type" data-bind="ojComponent: {
+                   required:true,
+                   component: 'ojInputText', 
+                   value: ''}">
+                        </div>
+                    </div>
+                </div>
+
+
                 <!--Description-->
                 <div class="oj-flex">
                     <div class="oj-flex-item">
@@ -81,34 +95,43 @@
                 <div class="oj-flex">
                     <div class="oj-flex-item">
                         <div>
-                            <!--<label for='picSelcet'> Choose your activity image </label>
-                            <select id='picSelcet' data-bind="ojComponent: {component: 'ojSelect',
-                              list: 'browsers',          
-                              rootAttributes: {style:'max-width:20em'}}">
-
-                                <option oj-data-value="Boli"><img src="http://wx1.sinaimg.cn/thumb300/9b60d56cly1fec253m2lbj20xc0qoqb0.jpg" role="presentation"
-                                        style="vertical-align:middle" width="48px" height="48px" /> Boli</option>
-                                <option oj-data-value="Wuha"><img src="http://wx4.sinaimg.cn/thumb300/9b60d56cgy1fe9ogvx8uwj20qo141k33.jpg" role="presentation"
-                                        style="vertical-align:middle" width="48px" height="48px" /> Wuha</option>
-                                        </select>-->
-
                             <select id="select1" data-bind="ojComponent: {component: 'ojSelect',
                               renderMode: 'jet',
                               list: 'browsers', value: [''],         
                               rootAttributes: {style:'max-width:20em'}}">
   </select>
                             <ul id="browsers" style="display: none">
-                                <li oj-data-value="Internet Explorer"><img src="http://wx1.sinaimg.cn/thumb300/9b60d56cly1fec253m2lbj20xc0qoqb0.jpg" width="48px" height="48px" role="presentation"
-                                        style="vertical-align:middle" /> Internet Explorer</li>
-                                <li oj-data-value="Firefox"><img src="http://wx4.sinaimg.cn/thumb300/9b60d56cgy1fe9ogvx8uwj20qo141k33.jpg" width="48px" height="48px" role="presentation"
-                                        style="vertical-align:middle" /> Firefox</li>
+                                <li oj-data-value="Internet Explorer"><img src="http://wx1.sinaimg.cn/thumb300/9b60d56cly1fec253m2lbj20xc0qoqb0.jpg" width="48px"
+                                        height="48px" role="presentation" style="vertical-align:middle" /> Internet Explorer</li>
+                                <li oj-data-value="Firefox"><img src="http://wx4.sinaimg.cn/thumb300/9b60d56cgy1fe9ogvx8uwj20qo141k33.jpg" width="48px"
+                                        height="48px" role="presentation" style="vertical-align:middle" /> Firefox</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
+                <!--isPublished-->
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <div>
+                            <label for="isPublishedSwitch">Publish or Not</label>
+                            <input id="isPublishedSwitch" data-bind="ojComponent: {component: 'ojSwitch', value: isPublished}" />
+
+                        </div>
+                    </div>
+                </div>
 
 
+                <!--submit button-->
+                <div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <div>
+                            <button id="submitBtn" data-bind="click: submitBtnClick, 
+                       ojComponent: { component: 'ojButton', label: 'Submit' }">
+    </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

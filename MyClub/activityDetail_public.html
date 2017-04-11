@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-min.css" rel="stylesheet" type="text/css" />
     <link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-notag-min.css" rel="stylesheet" type="text/css" />
-    <script src="lib/jet/3.0.0/js/libs/require/require.js" data-main="js/activityDetail"></script>
+    <script src="lib/jet/3.0.0/js/libs/require/require.js" data-main="js/activityDetail_public"></script>
 </head>
 
 <body>
@@ -35,29 +35,25 @@
                                   value:activity_end, 
                                   readOnly: true}" />
 
+        <label for='activityType'> <b>Activity Type</b></label>
+        <input id="activityType" data-bind="ojComponent: {component: 'ojInputText', 
+                                  value:activity_type, 
+                                  readOnly: true}" />
+
         <label for='activityDesc'> <b>Activity Description</b></label>
         <input id="activityDesc" data-bind="ojComponent: {component: 'ojInputText', 
                                   value:activity_desc, 
                                   readOnly: true}" />
 
-        <hr />
-        <table id="attendeeTable" summary="Attendee Table" aria-label="Attendee Table" data-bind="ojComponent:{component:'ojTable',
-	data:attendee,
-	selectionMode:{row:'multiple',column:'single'},
-	columns:[{headerText:'Member Id',
-			field:'MemberId',
-			id:'member_id'},
-            {headerText:'Name',
-			field:'Name',
-			id:'name'},
-			{headerText:'Mail box',
-			field:'Mailbox',
-			id:'mailbox'}]}">
-        </table>
-        <hr />
 
-        <button id="kick" data-bind="click: kickBtnListener, 
-                       ojComponent: { component: 'ojButton', label: 'Kick off' }">
+        <br/>
+        
+        <button id="enroll" data-bind="click: enrollBtnListener, 
+                       ojComponent: { component: 'ojButton', label: 'Enroll' }">
+        </button>
+
+        <button id="unenrollBtn" data-bind="click: unenrollBtnListener, 
+                       ojComponent: { component: 'ojButton', label: 'UnEnroll' }">
         </button>
     </div>
 </body>

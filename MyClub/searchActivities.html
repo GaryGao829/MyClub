@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-notag-min.css" rel="stylesheet" type="text/css" />
+    <script src="lib/jet/3.0.0/js/libs/require/require.js" data-main="js/searchActivities"></script>
+</head>
+
+<body>
+    <div id='searchActivities'>
+
+        <label for="search-input">Search Activities</label>
+        <input id="search-input" data-bind="ojComponent: {component: 'ojInputSearch', 
+         rawValue: keyword,
+            }" />
+        <button id="search-button" data-bind="ojComponent: {
+            component: 'ojButton', 
+            label: 'Search'},
+            click: searchBtnClick">
+        </button>
+        <br>
+        <table id="activityTable"  aria-label="Search Results" data-bind="ojComponent:{component:'ojTable',
+	data:activities,
+    selectionMode:{row:'single',column:'null'},
+    scrollPolicy: 'loadMoreOnScroll',
+    scrollPolicyOptions: {'fetchSize': 10},
+	columns:[{headerText:'Activitiy Id',
+			field:'ActivityId',
+			id:'activity_id'},
+            {headerText:'Activity Name',
+			field:'ActivityName',
+			id:'activity_name'},
+			{headerText:'Activity Owner',
+			field:'ActivityOwner',
+			id:'activity_owner'},
+            {headerText:'Start Date',
+			field:'StartDate',
+			id:'start_date'},
+            {headerText:'End Date',
+			field:'EndDate',
+			id:'end_date'},
+            {headerText:'Location',
+			field:'Location',
+			id:'location'},
+            {headerText:'Activity Type',
+			field:'ActivityType',
+			id:'activity_type'},
+            {headerText:'Activity Description',
+			field:'Description',
+			id:'description'}   
+            ]}">
+        </table>
+
+    </div>
+</body>

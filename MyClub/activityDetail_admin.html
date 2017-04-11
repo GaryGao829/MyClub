@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-notag-min.css" rel="stylesheet" type="text/css" />
+    <script src="lib/jet/3.0.0/js/libs/require/require.js" data-main="js/activityDetail_admin"></script>
+</head>
+
+<body>
+    <div id='activityDetail'>
+        <p>
+            <h1>Activity Detail</h1>
+        </p>
+        <hr/>
+        <label for="readOnlySwitch">Edit Activity</label>
+        <input id="readOnlySwitch" data-bind="ojComponent: {component: 'ojSwitch', value: switchStatus}" />
+        <br/><br/>
+        <label for='activityName'> <b>Activity Name</b></label>
+        <input id="activityName" data-bind="ojComponent: {component: 'ojInputText', 
+                                  value:activity_name, 
+                                  readOnly: ((switchStatus()) ? false : true )}" />
+
+
+        <label for='activityLocation'> <b>Activity Location</b></label>
+        <input id="activityLocation" data-bind="ojComponent: {component: 'ojInputText', 
+                                  value:activity_location, 
+                                  readOnly: ((switchStatus()) ? false : true )}" />
+
+        <label for='activityStart'> <b>Activity Starts At</b></label>
+        <input id="activityStart" data-bind="ojComponent: {component: 'ojInputText', 
+                                  value:activity_start, 
+                                  readOnly: ((switchStatus()) ? false : true )}" />
+
+
+        <label for='activityEnd'> <b>Activity Ends At</b></label>
+        <input id="activityEnd" data-bind="ojComponent: {component: 'ojInputText', 
+                                  value:activity_end, 
+                                  readOnly: ((switchStatus()) ? false : true )}" />
+
+        <label for='typeSelect'> <b>Activity Type</b></label>
+        <select id="typeSelect" data-bind="ojComponent: {component: 'ojSelect',
+                              renderMode: 'jet',
+                              list: 'types', value: activity_type,    
+                              disabled: ((switchStatus()) ? false : true ),
+                              rootAttributes: {style:'max-width:20em'}}">
+        </select>
+        <ul id="types" style="display: none">
+            <li oj-data-value="Sport">Sport</li>
+            <li oj-data-value="Food">Food</li>
+            <li oj-data-value="Others">Others</li>
+
+        </ul>
+
+        <label for='activityDesc'> <b>Activity Description</b></label>
+        <input id="activityDesc" data-bind="ojComponent: {component: 'ojInputText', 
+                                  value:activity_desc, 
+                                  readOnly: (switchStatus() ? false : true )}" />
+        <br/>
+        <label for="isPublished" class="oj-label-inline"><b>Published</b></label>
+        <input id="isPublished" data-bind="ojComponent: {component: 'ojSwitch', 
+                                    value: isPub ,
+                                    disabled: (switchStatus() ? false : true )}" />
+        <br/>
+
+        <button id="updateBtn" data-bind="click: updateBtnListener, 
+                       ojComponent: { component: 'ojButton', label: 'Update',
+                       disabled: (switchStatus() ? false : true ) }">
+        </button>
+        <br>
+        <hr />
+
+        <table id="attendeeTable" summary="Attendee Table" aria-label="Attendee Table" data-bind="ojComponent:{component:'ojTable',
+	data:attendee,
+	selectionMode:{row:'single',column:'null'},
+	columns:[{headerText:'First Name',
+			field:'FirstName',
+			id:'first_name'},
+            {headerText:'Last Name',
+			field:'LastName',
+			id:'last_name'},
+			{headerText:'Mail box',
+			field:'Mailbox',
+			id:'mailbox'}]}">
+        </table>
+        <br/>
+        <button id="kick" data-bind="click: kickBtnListener, 
+                       ojComponent: { component: 'ojButton', label: 'Kick off' }">
+        </button>
+    </div>
+</body>
+
+</html>

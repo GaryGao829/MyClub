@@ -30,36 +30,41 @@ requirejs.config({
 });
 
 require(['ojs/ojcore', 'knockout', 'jquery',
-    'ojs/ojknockout', 'promise', 'ojs/ojtable', 'ojs/ojarraytabledatasource', 'ojs/ojinputtext', 'ojs/ojbutton'], function (oj, ko, $) {
-        function model() { 
+    'ojs/ojknockout', 'promise', 'ojs/ojtable', 'ojs/ojarraytabledatasource', 'ojs/ojselectcombobox', 'ojs/ojinputtext', 'ojs/ojbutton'], function (oj, ko, $) {
+        function model() {
             var self = this;
-            var userId;
-            var tableContent = [
-                { ActivitiyId: '11', ActivityName: 'act A', balabala: 'xxxxxxm' },
-                { ActivitiyId: '12', ActivityName: 'act B', balabala: 'asdfm' },
-                { ActivitiyId: '13', ActivityName: 'act C', balabala: 'tfffomsfadsfas' },
-                { ActivitiyId: '14', ActivityName: 'act D', balabala: 'tddoffff' }
-            ];
-            //self.activities = getMyActivities(userId);
-            self.activities = new oj.ArrayTableDataSource(tableContent, { idAttribute: 'ActivitiyId' });
+            var baseURL = 'http://slc11jru.us.oracle.com:8080/restsql/res/Activity?isPublished=1';
+            var type; // 如果从类型方块 跳转过来 ， 赋值。
+            self.keyword = ko.observable();
+            self.searchBtnClick = function () {
+                var keyword = $("#search-input").ojInputSearch("option", "rawValue");
+                var newContent = [];
+                searchActivity(newContent, keyword, type);
+                var tableData = new oj.ArrayTableDataSource(newContent, { idAttribute: 'ActivityId' });
+                $('#activityTable').ojTable("option", "data", tableData);
+                $('#activityTable').ojTable('refresh');
 
-            function getMyActivities(userId){
+
+            }
+
+            function searchActivity(contentTable, keyword, type) {
+                var keyword_param = keyword ? '&description=%25' + keyword + '%' : '';
+                var type_param = type ? '&activity_type=keyword' : '';
+                console.log("in searchActivity fun");
                 $.ajax({
                     //TODO construct complete url 
-                    url: "someurl" + "?q=SomeServiceName" + userId,
+                    url: baseURL + keyword_param + type_param,
                     beforeSend: function (xhrObj) {
                         xhrObj.setRequestHeader("Accept", "application/json");
-                        //TODO check certification info
-                        //xhrObj.setRequestHeader("Authorization", "Basic " + btoa("scmoperations:Welcome1"));
                     },
                     type: 'GET',
                     dataType: 'json',
                     async: false,
                     success(data, textStatus) {
                         //TODO  modify structure
-                        $.each(data.items, function (i, item) {
-                            console.log("get activity info success")
-                            //TODO fill in the content 
+                        $.each(data.activitys, function (i, item) {
+                            console.log("get activity info success");
+                            contentTable.push({ ActivityId: item.activity_id, ActivityName: item.activity_name, ActivityOwner: item.activity_owner, StartDate: item.start_time, EndDate: item.end_time, Location: item.location, ActivityType: item.activity_type, Description:item.description})
                         })
                     },
                     error(textStatus, errorThrown) {
@@ -68,11 +73,14 @@ require(['ojs/ojcore', 'knockout', 'jquery',
                     },
                 });
             }
+
+            var tableContent = [];
+            searchActivity(tableContent, null, null);
+            self.activities = new oj.ArrayTableDataSource(tableContent, { idAttribute: 'ActivityId' });
+
         }
         $(function () {
             ko.applyBindings(new model(),
                 document.getElementById('myActivities'));
         })
     });
-
-

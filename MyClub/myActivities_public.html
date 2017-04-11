@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-min.css" rel="stylesheet" type="text/css" />
+    <link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-notag-min.css" rel="stylesheet" type="text/css" />
+    <script src="lib/jet/3.0.0/js/libs/require/require.js" data-main="js/myActivities_public"></script>
+</head>
+<div id='myActivities'>
+    <p>
+        <h1>Manage My Activities</h1>
+    </p>
+
+    <table id="manageActivityTable" summary="My Activities Table" aria-label="My Activities Table" data-bind="ojComponent:{component:'ojTable',
+	data:activities,
+    selectionMode:{row:'single',column:'null'},
+    scrollPolicy: 'loadMoreOnScroll',
+    scrollPolicyOptions: {'fetchSize': 10},
+	columns:[{headerText:'Activitiy Id',
+			field:'ActivityId',
+			id:'activity_id'},
+            {headerText:'Activity Name',
+			field:'ActivityName',
+			id:'activity_name'},
+            {headerText:'Description',
+			field:'Description',
+			id:'description'}            
+            ]}">
+    </table>
+    <hr/>
+    <button id='detailBtn' data-bind="click: detailBtnListener, 
+                       ojComponent: { component: 'ojButton', label: 'View Detail' }">
+                       </button>
+</div>
+
+
+
+<body>
+</body>
+
+</html>

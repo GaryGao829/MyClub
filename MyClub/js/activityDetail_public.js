@@ -29,35 +29,94 @@ requirejs.config({
     }
 });
 
-
-
 require(['ojs/ojcore', 'knockout', 'jquery',
-    'ojs/ojknockout', 'ojs/ojinputtext', 'ojs/ojinputnumber',
-    'ojs/ojradioset', 'ojs/ojcheckboxset',
-    'ojs/ojselectcombobox',
-    'ojs/ojdatetimepicker', 'ojs/ojtimezonedata', 'ojs/ojswitch'],
-    function (oj, ko, $) {
-        function StateModel() {
+    'ojs/ojknockout', 'promise', 'ojs/ojtable', 'ojs/ojarraytabledatasource', 'ojs/ojinputtext', 'ojs/ojbutton'], function (oj, ko, $) {
+        function model() {
             var self = this;
-            self.placeholder = ko.observable(true);
-            self.startDate = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date()));
-            self.startTime = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date()));
-            self.endDate = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date()));
-            self.endTime = ko.observable(oj.IntlConverterUtils.dateToLocalIso(new Date()));
-            self.isPublished = ko.observable(false);
-            self.submitBtnClick = function () {
-                console.log("submit button click")
-                var name = $("#activityNameInput").ojInputText("option", "value");
-                var location = $("#activityLocation").ojInputText("option", "value");
-                var startDate = $("#startDate").ojInputDate("option", "value");
-                var startTime = $("#startTime").ojInputTime("option", "value").substr(1);
-                var endDate = $("#endDate").ojInputDate("option", "value");
-                var endTime = $("#endTime").ojInputTime("option", "value").substr(1);
-                var type = $("#activityType").ojInputText("option", "value");
-                var description = $("#activityDesc").ojTextArea("option", "value");
-                var isPub = $("#isPublishedSwitch").ojSwitch("option", "value") ? 1 : 0;
+            var user_id = 2;
+            var activityId = 1;
+            var activityInfoURL = 'http://slc11jru.us.oracle.com:8080/restsql/res/Activity';
+            var unenrollURL = 'http://slc11jru.us.oracle.com:8080/restsql/res/UserCampaign?activity_id=' + activityId + '&user_id=' + user_id;
+            var enrollURL = 'http://slc11jru.us.oracle.com:8080/restsql/res/UserCampaign';
+            var tableContent = [];
+            self.attendee = new oj.ArrayTableDataSource(tableContent, { idAttribute: 'MemberId' });
+
+            self.activity_name = ko.observable("Name to get");
+            self.activity_location = ko.observable("Location to get");
+            self.activity_start = ko.observable("Starts At 2017-09-23 11:00");
+            self.activity_end = ko.observable("Ends At 2017-09-23 23:00");
+            self.activity_type = ko.observable("Others");
+            self.activity_desc = ko.observable("some description");
+            self.unenrollBtnListener = function () {
+                unenroll();
+            }
+            self.enrollBtnListener = function () {
+                enroll();
+            }
+            getActivityDetail(activityId);
 
 
+            //get activity information
+            function getActivityDetail(Id) {
+                $.ajax({
+                    url: activityInfoURL + "/" + Id,
+                    beforeSend: function (xhrObj) {
+                        xhrObj.setRequestHeader("Accept", "application/json");
+                        //TODO check certification info
+                        //xhrObj.setRequestHeader("Authorization", "Basic " + btoa("scmoperations:Welcome1"));
+                    },
+                    type: 'GET',
+                    dataType: 'json',
+                    async: false,
+                    success(data, textStatus) {
+                        $.each(data.activitys, function (i, item) {
+                            console.log("get activity info success")
+                            self.activity_name = item.activity_name;
+                            self.activity_location = item.description;
+                            self.activity_start = item.start_time;
+                            self.activity_end = item.end_time;
+                            self.activity_desc = item.description;
+                            self.activity_type = item.activity_type
+                        })
+                    },
+                    error(textStatus, errorThrown) {
+                        console.log("ERROR in getting activity info ");
+                        console.log(textStatus);
+                    },
+                });
+            }
+
+
+            // unenroll
+            function unenroll() {
+                $.ajax({
+                    //TODO construct complete url 
+                    url: unenrollURL,
+                    beforeSend: function (xhrObj) {
+                        xhrObj.setRequestHeader("Accept", "application/json");
+                        //TODO check certification info
+                        //xhrObj.setRequestHeader("Authorization", "Basic " + btoa("scmoperations:Welcome1"));
+                    },
+                    type: 'DELETE',
+                    dataType: 'json',
+                    async: false,
+                    success(data, textStatus) {
+                        //TODO  modify structure
+                        if (data.rowsAffected == 0) {
+                            console.log("you are not in this activity");
+                        }else if(data.rowsAffected > 0){
+                            console.log("unenroll successfully");
+                        }
+                    },
+                    error(textStatus, errorThrown) {
+                        console.log("ERROR in deleting activity attendendee ");
+                        console.log(textStatus);
+                    },
+                });
+            }
+
+            //enroll
+            function enroll() {
                 var MEDIA_TYPE_URLENCODED = "application/x-www-form-urlencoded";
                 var MEDIA_TYPE_JSON = "application/json";
                 var MEDIA_TYPE_XML = "application/xml";
@@ -102,11 +161,9 @@ require(['ojs/ojcore', 'knockout', 'jquery',
                     }
                     return html + "</pre>";
                 }
-
-
                 function doCreate(method, requestBody, contentType) {
 
-                    var url = "http://slc11jru.us.oracle.com:8080/restsql" + "/res/" + "Activity";
+                    var url = enrollURL;
                     var responseBody = "";
                     var xmlhttp;
                     if (navigator.appName == "Microsoft Internet Explorer") {
@@ -130,44 +187,35 @@ require(['ojs/ojcore', 'knockout', 'jquery',
                         xmlhttp.setRequestHeader("Content-Type", contentType);
                     }
                     xmlhttp.send(requestBody);
-                    alert("create successfully");
+                    console.log("enroll successfully");
                 }
+                //Enroll activity
+                function enrollActivity() {
 
-                function createActivity() {
                     var body = "";
                     var contentType = "";
-                    var attributes = ["activity_name",
-                        name,
-                        "activity_owner",
-                        "julia",
-                        "start_time",
-                        startDate + ' ' + startTime,
-                        "end_time",
-                        endDate + ' ' + endTime,
-                        "location",
-                        location,
-                        "description",
-                        description,
-                        "activity_type",
-                        type,
-                        "isPublished",
-                        isPub];
+                    var attributes = [
+                        "activity_id",
+                        activityId,
+                        "user_id",
+                        user_id];
                     body = buildUrlEncodedBody(attributes);
-                    if (name == "") {
-                        alert("At least one name/value required");
+                    if (body == "") {
+                        alert("parameter missing");
                         return;
                     }
                     contentType = MEDIA_TYPE_URLENCODED;
 
                     doCreate("POST", body, contentType);
                 }
-                createActivity();
+                enrollActivity();
             }
+
+
         }
-        $(
-            function () {
-                ko.applyBindings(new StateModel(),
-                    document.getElementById('form-container'));
-            }
-        );
+        $(function () {
+            ko.applyBindings(new model(),
+                document.getElementById('activityDetail'));
+        })
+
     });
