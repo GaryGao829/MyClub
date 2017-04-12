@@ -82,7 +82,9 @@ require(['ojs/ojcore', 'knockout', 'jquery',
                 var selectedRow = $('#manageActivityTable').ojTable("option", "data")._data[rowIndex];
                 var actSelId = selectedRow.ActivityId;
                 console.log(actSelId);
+                window.location= "activityDetail_public.html?activity_id="+actSelId;
                 return actSelId;
+
             }
 
         }

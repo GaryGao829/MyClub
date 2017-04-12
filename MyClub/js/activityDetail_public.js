@@ -32,6 +32,7 @@ requirejs.config({
 require(['ojs/ojcore', 'knockout', 'jquery',
     'ojs/ojknockout', 'promise', 'ojs/ojtable', 'ojs/ojarraytabledatasource', 'ojs/ojinputtext', 'ojs/ojbutton'], function (oj, ko, $) {
         function model() {
+        	console.log(window.location.href);
             var self = this;
             var user_id = 2;
             var activityId = 1;
@@ -104,6 +105,7 @@ require(['ojs/ojcore', 'knockout', 'jquery',
                         //TODO  modify structure
                         if (data.rowsAffected == 0) {
                             console.log("you are not in this activity");
+                            alert("unEnroll failed")
                         }else if(data.rowsAffected > 0){
                             console.log("unenroll successfully");
                         }
@@ -177,7 +179,7 @@ require(['ojs/ojcore', 'knockout', 'jquery',
                                 responseBody = prepResponseBodyForDisplay(xmlhttp.responseText, MEDIA_TYPE_JSON);
                             } else {
                                 responseBody = "<code>" + xmlhttp.responseText + "</code>";
-
+                                alert("enroll failed");
                             }
                         }
                     }
@@ -187,7 +189,6 @@ require(['ojs/ojcore', 'knockout', 'jquery',
                         xmlhttp.setRequestHeader("Content-Type", contentType);
                     }
                     xmlhttp.send(requestBody);
-                    console.log("enroll successfully");
                 }
                 //Enroll activity
                 function enrollActivity() {

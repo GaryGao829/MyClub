@@ -34,7 +34,7 @@ require(['ojs/ojcore', 'knockout', 'jquery',
     'ojs/ojinputtext', 'ojs/ojbutton', 'ojs/ojSwitch', 'ojs/ojselectcombobox'], function (oj, ko, $) {
         function model() {
             var self = this;
-            var activityId = 1;
+            var activityId = 7;
             var activityInfoURL = 'http://slc11jru.us.oracle.com:8080/restsql/res/Activity';
             var attendeeInfoURL = 'http://slc11jru.us.oracle.com:8080/restsql/res/QueryEnrollUser';
             var kickAttendeeURL = 'http://slc11jru.us.oracle.com:8080/restsql/res/UserCampaign';
@@ -61,21 +61,25 @@ require(['ojs/ojcore', 'knockout', 'jquery',
             self.attendee = new oj.ArrayTableDataSource(tableContent, { idAttribute: 'Mailbox' });
 
             self.kickBtnListener = function () {
-                console.log("click button");
-                var attendeeTobeDel = currentSelection();
-                if (attendeeTobeDel === null) {
-                    window.alert("Select attendee first");
+                var selObj = $('#attendeeTable').ojTable("option", "selection");
+                if (selObj == null || selObj.length == 0) {
                     return;
                 }
-                console.log("you choose attendeeTobeDel");
-                kickAttendees(1); // Todo change the hardcode !!!
+                var rowIndex = selObj[0].startIndex.row;
+                var selectedRow = $('#attendeeTable').ojTable("option", "data")._data[rowIndex];
+                var actSelId = selectedRow.UserId;
+                console.log(actSelId);
+                kickAttendees(actSelId);
             }
             self.updateBtnListener = function () {
                 console.log("click update btn");
                 updateActivity(activityId);
                 getActivityDetail(activityId);
             }
-
+            self.deleteActivityBtnListener = function(){
+                console.log("click delete button");
+                deleteActivity(activityId);
+            }
 
             //get activity information
             function getActivityDetail(Id) {
@@ -108,6 +112,29 @@ require(['ojs/ojcore', 'knockout', 'jquery',
                     },
                 });
             }
+            //delete activity
+            function deleteActivity(Id){
+                $.ajax({
+                    //TODO construct complete url 
+                    url: activityInfoURL + "/" + Id,
+                    beforeSend: function (xhrObj) {
+                        xhrObj.setRequestHeader("Accept", "application/json");
+                        //TODO check certification info
+                        //xhrObj.setRequestHeader("Authorization", "Basic " + btoa("scmoperations:Welcome1"));
+                    },
+                    type: 'DELETE',
+                    dataType: 'json',
+                    async: false,
+                    success(data, textStatus) {
+                            alert("delete activity successfully");
+                            window.close();                    
+                    },
+                    error(textStatus, errorThrown) {
+                        console.log("ERROR in getting activity info ");
+                        console.log(textStatus);
+                    },
+                });
+            }
 
             //get activity attendendee
             function getActivityAttendee(contentTable, Id) {
@@ -124,7 +151,7 @@ require(['ojs/ojcore', 'knockout', 'jquery',
                             console.log("get activity attendendee success")
                             $.each(item.userss, function (j, subItem) {
                                 if (!subItem.email) return [];
-                                contentTable.push({ FirstName: subItem.first_name, LastName: subItem.last_name, Mailbox: subItem.email });
+                                contentTable.push({ UserId: subItem.user_id, FirstName: subItem.first_name, LastName: subItem.last_name, Mailbox: subItem.email });
                             })
                         })
                     },
@@ -164,47 +191,11 @@ require(['ojs/ojcore', 'knockout', 'jquery',
             function refreshTable() {
                 var newContent = [];
                 getActivityAttendee(newContent, activityId);
-                var tableData = new oj.ArrayTableDataSource(newContent, { idAttribute: 'Mailbox' });
+                var tableData = new oj.ArrayTableDataSource(newContent, { idAttribute: 'UserId' });
                 $('#attendeeTable').ojTable("option", "data", tableData);
                 $('#attendeeTable').ojTable('refresh');
             }
 
-            //Current Selection value of table
-            function currentSelection() {
-                var selectionObj = $("#attendeeTable").ojTable("option", "selection");
-                var selectionTxt = "";
-                if (!selectionObj) {
-                    return null;
-                }
-                var i = 0;
-                for (i = 0; i < selectionObj.length; i++) {
-                    var range = selectionObj[i];
-                    var startIndex = range.startIndex;
-                    var endIndex = range.endIndex;
-                    var startKey = range.startKey;
-                    var endKey = range.endKey;
-
-                    if (startIndex != null && startIndex.row != null) {
-                        //row selection
-                        selectionTxt = selectionTxt + "Row Selection\n";
-                        selectionTxt = selectionTxt + "start row index: " + startIndex.row + ", end row index: " + endIndex.row + "\n";
-                    }
-                    if (startKey != null && startKey.row != null) {
-                        selectionTxt = selectionTxt + "start row key: " + startKey.row + ", end row key: " + endKey.row + "\n";
-                    }
-
-                    if (startIndex != null && startIndex.column != null) {
-                        //column selection
-                        selectionTxt = selectionTxt + "Column Selection\n";
-                        selectionTxt = selectionTxt + "start column index: " + startIndex.column + ", end column index: " + endIndex.column + "\n";
-                    }
-                    if (startKey != null && startKey.column != null) {
-                        selectionTxt = selectionTxt + "start column key: " + startKey.column + ", end column key: " + endKey.column + "\n";
-                    }
-                }
-                console.log(selectionTxt);
-
-            };
 
             function updateActivity(Id) {
                 var MEDIA_TYPE_URLENCODED = "application/x-www-form-urlencoded";

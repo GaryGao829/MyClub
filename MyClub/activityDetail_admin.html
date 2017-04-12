@@ -68,13 +68,21 @@
                        ojComponent: { component: 'ojButton', label: 'Update',
                        disabled: (switchStatus() ? false : true ) }">
         </button>
-        <br>
+        <button id="deleteBtn" data-bind="click: deleteActivityBtnListener, 
+                       ojComponent: { component: 'ojButton', label: 'Delete',
+                       disabled: (switchStatus() ? false : true ) }">
+        </button>
+        <br/>
         <hr />
 
         <table id="attendeeTable" summary="Attendee Table" aria-label="Attendee Table" data-bind="ojComponent:{component:'ojTable',
 	data:attendee,
 	selectionMode:{row:'single',column:'null'},
-	columns:[{headerText:'First Name',
+	columns:[
+            {headerText:'User Id',
+			field:'UserId',
+			id:'user_id'},
+            {headerText:'First Name',
 			field:'FirstName',
 			id:'first_name'},
             {headerText:'Last Name',
