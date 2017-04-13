@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:fb="http://ogp.me/ns/fb#" lang="en-gb">
+<head>
+<head>
+<meta http-equiv="Content-Language" content="en" />
+<meta charset="UTF-8" />
+<meta name="csrf_token" content="0b12efb74f8e4f47a79c93393b20fbd8" />
+<meta name="apple-mobile-web-app-title" content="MyClub">
+<meta name="application-name" content="MyClub">
+<meta name="description"
+	content="MyClub brings people together through live experiences." />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Club</title>
+<link rel="stylesheet" type="text/css" href="./css/base_style.css" />
+<link rel="stylesheet" type="text/css" href="./css/global_header.css" />
+<link rel="stylesheet" type="text/css" href="./css/home.css" />
+<link rel="stylesheet" type="text/css" href="./css/jquery.mobile-1.4.5.min.css">
+<script type="text/javascript" src="./JS/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="./JS/jquery.mobile-1.4.5.min.js"></script>
+<link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-min.css" rel="stylesheet" type="text/css" />
+<link href="lib/jet/3.0.0/css/libs/oj/v3.0.0/alta/oj-alta-notag-min.css" rel="stylesheet" type="text/css" />
+<script src="lib/jet/3.0.0/js/libs/require/require.js" data-main="JS/basejet"></script>
+<link rel="stylesheet" type="text/css" href="css/basejet.css">
+</head>
+<body>
+<div id="page" class="oj-offcanvas-outer-wrapper oj-offcanvas-page">
+  <div id="navDrawer" class="oj-hybrid-applayout-offcanvas oj-offcanvas-start oj-contrast-marker">
+    <!-- Nav Drawer -->
+    <!-- User Profile -->
+    <div>
+      <img alt="profile image" src="images/james_avatar.png" class="demo-james-icon">
+      <h2 class="demo-profile-name">Julie</h2>
+      <!-- Navigation -->
+      <div data-bind="click: toggleDrawer, ojComponent:{component: 'ojNavigationList',
+        navigationLevel: 'application', selection: drawerSelection}" class="oj-navigationlist-stack-icon-label">
+        <ul>
+          <li id="dashboard">
+            <a href="#">
+              <span class="oj-navigationlist-item-icon demo-icon-font-24 demo-chart-icon-24"></span>
+              All activities
+            </a>
+          </li>
+          <li id="incidents">
+            <a href="#">
+              <span class="oj-navigationlist-item-icon demo-icon-font-24 demo-fire-icon-24"></span>
+              Query all activities I attend
+            </a>
+          </li>
+          <li id="customers">
+            <a href="#">
+              <span class="oj-navigationlist-item-icon demo-icon-font-24 demo-people-icon-24"></span>
+              feedback
+            </a>
+          </li>
+          <!-- 
+          <li id="profile">
+            <a href="#">
+              <span class="oj-navigationlist-item-icon demo-icon-font-24 demo-person-icon-24"></span>
+              Profile
+            </a>
+          </li>
+           -->
+          <li id="about">
+            <a href="#">
+              <span class="oj-navigationlist-item-icon demo-icon-font-24 demo-info-icon-24"></span>
+              About
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="oj-flex-bar oj-sm-justify-content-center">
+        <h2 class="demo-app-name">Oracle App Name</h2>
+      </div>
+    </div>
+  </div>
+  <div class="oj-hybrid-applayout-page" id="pageContent">
+    <!-- Header -->
+    <div class="oj-applayout-fixed-top">
+      <header role="banner" class="oj-hybrid-applayout-header">
+        <div class="oj-flex-bar-start">
+          <button id="drawerToggleButton" data-bind="click: toggleDrawer,
+                        ojComponent: {component:'ojButton', chroming: 'half',
+                        display: 'icons', label: 'Navigation Drawer',
+                        icons: {start: 'oj-fwk-icon oj-fwk-icon-hamburger'}}">
+          </button>
+        </div>
+        <div class="oj-hybrid-applayout-bar-title">
+          <h1 class="oj-hybrid-applayout-header-title" data-bind="text: pageLabel"></h1>
+        </div>
+      </header>
+    </div>
+    <!-- Content -->
+    <div class="oj-applayout-content">
+      <div role="main" class="oj-hybrid-applayout-content">
+        <div id="content" class="oj-hybrid-padding">
+        <div id="content1" class="clrfix">
+		<div class="g-grid">
+			<section class="l-pad-bot-5 l-sm-pad-bot-3">
+				<div class="g-group l-pad-bot-3">
+					<div class="g-cell g-cell-1-1 l-align-center">
+						<h3 class="section-header l-pad-vert-3">Browse by
+							Top Categories</h3>
+					</div>
+					<div
+						class="g-cell g-cell-1-1 g-cell-md-1-2 g-cell-lg-1-3 l-pad-vert-3 l-md-pad-vert-2 lsm-pad-vert-1 "
+						style="height: 150px;">
+						<a
+							class="category-card js-category-link js-d-track-link category-food js-xd-janus-checkpoint-link"
+							href="/d/local/food-and-drink--events/"
+							data-category="Food &amp;amp; Drink"
+							data-event-action="ViewCategory" data-event-category="home"
+							data-event-label="Food &amp;amp; Drink"
+							data-checkpoint-name="homepage_category_card_click">
+							<div class="category-card__wrapper">
+								<div class="category-card__tint">
+									<img alt="category" src="images/img_category_food.jpg" />
+								</div>
+								<div class="category-card__text-wrapper">
+									<h4
+										class="category-card__label l-pad-hor-2 text-large text-body--significant text-heading--emphasized">
+										Baking</h4>
+									<p
+										class="category-card__desc l-mar-top-2 l-pad-hor-2 text-body text-heading--emphasized">
+										Dinner parties, tastings and big-time festivals</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div
+						class="g-cell g-cell-1-1 g-cell-md-1-2 g-cell-lg-1-3 l-pad-vert-3 l-md-pad-vert-2 lsm-pad-vert-1 "
+						style="height: 150px;">
+						<a
+							class="category-card js-category-link js-d-track-link category-arts js-xd-janus-checkpoint-link"
+							href="/d/local/arts--events/" data-category="Arts"
+							data-event-action="ViewCategory" data-event-category="home"
+							data-event-label="Arts"
+							data-checkpoint-name="homepage_category_card_click">
+							<div class="category-card__wrapper">
+								<div class="category-card__tint">
+									<img alt="category" src="images/img_category_arts.jpg" />
+								</div>
+								<div class="category-card__text-wrapper">
+									<h4
+										class="category-card__label l-pad-hor-2 text-large text-body--significant text-heading--emphasized">
+										Arts</h4>
+									<p
+										class="category-card__desc l-mar-top-2 l-pad-hor-2 text-body text-heading--emphasized">
+										Plays, comedy nights, art exhibitions and film festivals</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div
+						class="g-cell g-cell-1-1 g-cell-md-1-2 g-cell-lg-1-3 l-pad-vert-3 l-md-pad-vert-2 lsm-pad-vert-1 "
+						style="height: 150px;">
+						<a
+							class="category-card js-category-link js-d-track-link category-parties js-xd-janus-checkpoint-link"
+							href="/d/local/parties/" data-category="Party"
+							data-event-action="ViewCategory" data-event-category="home"
+							data-event-label="Party"
+							data-checkpoint-name="homepage_category_card_click">
+							<div class="category-card__wrapper">
+								<div class="category-card__tint">
+									<img alt="category" src="images/img_category_parties.jpg" />
+								</div>
+								<div class="category-card__text-wrapper">
+									<h4
+										class="category-card__label l-pad-hor-2 text-large text-body--significant text-heading--emphasized">
+										Parties</h4>
+									<p
+										class="category-card__desc l-mar-top-2 l-pad-hor-2 text-body text-heading--emphasized">
+										Casual happy hours, singles nights and all-night celebrations
+									</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div
+						class="g-cell g-cell-1-1 g-cell-md-1-2 g-cell-lg-1-3 l-pad-vert-3 l-md-pad-vert-2 lsm-pad-vert-1"
+						style="height: 150px;">
+						<a
+							class="category-card js-category-link js-d-track-link category-sports js-xd-janus-checkpoint-link"
+							href="/d/local/sports-and-fitness--events/"
+							data-category="Sports" data-event-action="ViewCategory"
+							data-event-category="home" data-event-label="Sports"
+							data-checkpoint-name="homepage_category_card_click">
+							<div class="category-card__wrapper">
+								<div class="category-card__tint">
+									<img alt="category" src="images/img_category_sports.jpg" />
+								</div>
+								<div class="category-card__text-wrapper">
+									<h4
+										class="category-card__label l-pad-hor-2 text-large text-body--significant text-heading--emphasized">
+										Sports</h4>
+									<p
+										class="category-card__desc l-mar-top-2 l-pad-hor-2 text-body text-heading--emphasized">
+										Obstacle races, drop-in yoga classes and the big match</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div
+						class="g-cell g-cell-1-1 g-cell-md-2-2 g-cell-lg-2-3 l-pad-vert-3 l-md-pad-vert-2 lsm-pad-vert-1 "
+						style="height: 150px;">
+						<a
+							class="category-card js-category-link js-d-track-link category-classes js-xd-janus-checkpoint-link"
+							href="/d/local/classes/" data-category="Class"
+							data-event-action="ViewCategory" data-event-category="home"
+							data-event-label="Class"
+							data-checkpoint-name="homepage_category_card_click">
+							<div class="category-card__wrapper">
+								<div class="category-card__tint">
+									<img alt="category" src="images/img_category_networking.jpg" />
+								</div>
+								<div class="category-card__text-wrapper">
+									<h4
+										class="category-card__label l-pad-hor-2 text-large text-body--significant text-heading--emphasized">
+										Courses</h4>
+									<p
+										class="category-card__desc l-mar-top-2 l-pad-hor-2 text-body text-heading--emphasized">
+										Enlightening seminars, technical workshops and fitness classes
+									</p>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+        <div id="content2" class="clrfix" style="display:none;"><p>1111111111111</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
